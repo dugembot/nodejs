@@ -13,6 +13,6 @@
 	  "http-proxy": "^1.18.1",
 	  "httpsrv": "^0.3.2",
 	  "request": "^2.88.1",
-	  "heroku-ssl-redirect": "*"
+	  "heroku-ssl-redirect": "^0.1.1"
   }
 }
