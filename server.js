@@ -1,3 +1,4 @@
+const sslRedirect = require('heroku-ssl-redirect')
 const http = require('http')
 const httpProxy = require('http-proxy')
 const express = require('express')
@@ -21,7 +22,7 @@ const server = http.createServer(app)
 server.on('upgrade', (req, socket, head) => {
 	proxy.ws(req, socket, head)
 })
-
+app.use(sslRedirect())
 // Handle normal http traffic
 app.use('/jsonrpc', (req, res) => {
 	req.pipe(request('http://127.0.0.1:6800/jsonrpc')).pipe(res)
@@ -50,7 +51,6 @@ downloads.onclick=function(){
 `)
 })
 server.listen(PORT, () => console.log(`Listening on http://127.0.0.1:${PORT}`))
-
 if (process.env.SPRING_DATASOURCE_USERNAME) {
 	const readNumUpload = () =>
 		new Promise((res, rej) =>
