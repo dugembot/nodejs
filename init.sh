@@ -12,4 +12,4 @@ fi
 echo "rpc-secret=$SPRING_DATASOURCE_PASSWORD" >> aria2c.conf
 
 aria2c --conf-path=aria2.conf
-npm start
+node index.js
