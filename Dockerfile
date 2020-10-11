@@ -24,6 +24,6 @@ RUN apk update \
 COPY . .
 
 ENV PORT=8000
-EXPOSE 8000
+EXPOSE 8000 6800
 
 CMD ["bash", "init.sh"]
