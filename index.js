@@ -32,7 +32,7 @@ app.use(
 		basedir: __dirname + '/downloads'
 	})
 )
-app.use('/front', express.static(__dirname + '/front'))
+app.use('/frontweb', express.static(__dirname + '/frontweb'))
 app.get('/', (req, res) => {
 	res.send(`
 <label for="secret">Enter your aria2 secret:</label>
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 <button id="downloads">View downloaded files</button>
 <script>
 panel.onclick=function(){
-	open('/front/#!/settings/rpc/set/wss/'+location.hostname+'/443/jsonrpc/'+btoa(secret.value),'_blank')
+	open('/frontweb/#!/settings/rpc/set/wss/'+location.hostname+'/443/jsonrpc/'+btoa(secret.value),'_blank')
 }
 downloads.onclick=function(){
 	open('/downloads/'+btoa(secret.value)+'/')
