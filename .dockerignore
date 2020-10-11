@@ -1,6 +1,13 @@
 # exclude underlying OS specific node modules
-frontend/node*
-
-# also leave out pre-build output folders
-frontend/target
-backend/target
+.git
+.mvn
+backend
+frontend
+screenshots
+.gitignore
+LICENSE
+README.md
+app.json
+mvnw*
+pom.xml
+renovate.json
