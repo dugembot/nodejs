@@ -1,7 +1,7 @@
 # Docker multi-stage build
 
 # 1. Building the App with Maven
-FROM risingstack/alpine:3.3-v4.2.6-1.1.3
+FROM node:alpine
 WORKDIR /app
 
 COPY package.json package.json  
