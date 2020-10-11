@@ -10,7 +10,7 @@ const SECRET = /rpc-secret=(.*)/.exec(
 )[1]
 const ENCODED_SECRET = Buffer.from(SECRET).toString('base64')
 
-const PORT = process.env.PORT || 1234
+const PORT = process.env.PORT || 8080
 const app = express()
 const proxy = httpProxy.createProxyServer({
 	target: 'ws://127.0.0.1:6800',
