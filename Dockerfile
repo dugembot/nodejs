@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Just echo so we can see, if everything is there :)
 RUN apk update \
-	&& apk add --no-cache --update aria2 rclone darkhttpd \
+	&& apk add --no-cache --update aria2 rclone darkhttpd bash wget curl unzip tar \
 	&& mkdir -p downloads front \
 	&& wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip \
 	&& unzip AriaNg-1.1.7.zip -d front \
