@@ -16,7 +16,7 @@ RUN apk update \
 	&& wget -q https://github.com/P3TERX/aria2-builder/releases/download/1.35.0_2020.09.04/aria2-1.35.0-static-linux-amd64.tar.gz \
 	&& tar xf aria2-1.35.0-static-linux-amd64.tar.gz \
 	&& mv rclone-*-linux-amd64/rclone /usr/bin/ \
-	&& mv aria2c /usr/local/bin \
+	&& mv aria2c /usr/local/bin/ \
 	&& wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip \
 	&& unzip AriaNg-1.1.7.zip -d front \
 	&& rm -rf AriaNg-* rclone-* aria2-*
