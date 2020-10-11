@@ -11,6 +11,4 @@ fi
 
 echo "rpc-secret=$SPRING_DATASOURCE_PASSWORD" >> aria2c.conf
 
-darkhttpd /front --port 8000 &
-darkhttpd /downloads --port 8080 &
 aria2c --conf-path=aria2.conf
