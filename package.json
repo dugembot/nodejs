@@ -1,16 +1,17 @@
 {
-	"name": "heroku-aria2c",
-	"version": "1.0.0",
-	"main": "index.js",
-	"author": "kingcute74 <kingcute74@gmail.com>",
-	"license": "MIT",
-	"dependencies": {
-		"express": "^4.17.1",
-		"http-proxy": "^1.18.1",
-		"httpsrv": "^0.3.2",
-		"request": "^2.88.2"
-	},
-	"scripts": {
-		"start": "node index.js"
-	}
+  "name": "docker_heroku_ariang",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "dugembot <dugembot@idfl.club>",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+	  "express": "^4.17.1",
+	  "http-proxy": "^1.18.1",
+	  "httpsrv": "^0.3.2",
+	  "request": "^2.88.1"
+  }
 }
