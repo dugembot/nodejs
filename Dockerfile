@@ -1,29 +1,19 @@
 # Docker multi-stage build
 
 # 1. Building the App with Maven
-FROM maven:3-jdk-11
-
-ADD . /springbootvuejs
-WORKDIR /springbootvuejs
+FROM alpine:latest
+WORKDIR /app
 
 # Just echo so we can see, if everything is there :)
-RUN ls -l
+RUN apk update \
+	&& apk add --no-cache --update aria2 rclone darkhttpd \
+	&& mkdir -p downloads front \
+	&& wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip \
+	&& unzip AriaNg-1.1.7.zip -d front \
+	&& rm -rf AriaNg-1.1.7.zip
 
-# Run Maven build
-RUN mvn clean install
+COPY . .
 
+EXPOSE 6800 8000 8080
 
-# Just using the build artifact and then removing the build-container
-FROM openjdk:11-jdk
-
-MAINTAINER Jonas Hecht
-
-VOLUME /tmp
-
-# Add Spring Boot app.jar to Container
-COPY --from=0 "/springbootvuejs/backend/target/backend-0.0.1-SNAPSHOT.jar" app.jar
-
-ENV JAVA_OPTS=""
-
-# Fire up our Spring Boot app by default
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+CMD ["bash", "init.sh"]
