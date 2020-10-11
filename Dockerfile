@@ -11,7 +11,7 @@ RUN npm install
 RUN apk update \
 	&& apk add --no-cache --update bash wget curl unzip tar \
 	&& mkdir -p downloads front \
-	&& curl -L https://downloads.rclone.org/rclone-current-linux-amd64.zip | unzip \
+	&& curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip && unzip rclone-current-linux-amd64.zip \
 	&& curl -L https://github.com/P3TERX/aria2-builder/releases/download/1.35.0_2020.09.04/aria2-1.35.0-static-linux-arm64.tar.gz | tar -xz \
 	&& mv rclone-*-linux-amd64/rclone aria2c /usr/local/bin/ \
 	&& wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip \
