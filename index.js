@@ -7,7 +7,7 @@ const fs = require('fs')
 const SECRET = /rpc-secret=(.*)/.exec(
 	fs.readFileSync('aria2.conf', 'utf-8')
 )[1]
-const ENCODED_SECRET = Buffer.from(SPRING_DATASOURCE_PASSWORD).toString('base64')
+const ENCODED_SECRET = Buffer.from(SECRET).toString('base64')
 
 const PORT = process.env.PORT || 1234
 const app = express()
@@ -51,14 +51,14 @@ downloads.onclick=function(){
 })
 server.listen(PORT, () => console.log(`Listening on http://127.0.0.1:${PORT}`))
 
-if (process.env.HEROKU_APP_NAME) {
+if (process.env.SPRING_DATASOURCE_USERNAME) {
 	const readNumUpload = () =>
 		new Promise((res, rej) =>
 			fs.readFile('numUpload', 'utf-8', (err, text) =>
 				err ? rej(err) : res(text)
 			)
 		)
-	const APP_URL = `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
+	const APP_URL = `https://${process.env.SPRING_DATASOURCE_USERNAME}.herokuapp.com`
 	const preventIdling = () => {
 		request.post(
 			'http://127.0.0.1:6800/jsonrpc',
