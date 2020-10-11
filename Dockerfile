@@ -4,7 +4,7 @@
 FROM node:lts-alpine
 WORKDIR /app
 
-COPY package.json package.json  
+COPY package.json ./
 RUN npm install
 
 # Just echo so we can see, if everything is there :)
